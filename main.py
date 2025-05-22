@@ -45,6 +45,8 @@ def processImage(filename, format_conversion=None, image_processing=None):
     print(f"Format Conversion: {format_conversion}, Image Processing: {image_processing}, Filename: {filename}")
     img = cv2.imread(f"uploads/{filename}")
 
+
+
     # Handle format conversions
     if format_conversion:
         match format_conversion:
@@ -100,6 +102,48 @@ def processImage(filename, format_conversion=None, image_processing=None):
                 newFilename = f"static/{filename.split('.')[0]}_sharpened.png"
                 cv2.imwrite(newFilename, imgProcessed)
                 return newFilename
+            
+ #add new features , add under the image_processing
+ 
+          
+            case "crop":
+                # Crop 10% margin
+                height, width = img.shape[:2]
+                crop_img = img[int(height*0.1):int(height*0.9), int(width*0.1):int(width*0.9)]
+                newFilename = f"static/{filename.split('.')[0]}_cropped.png"
+                cv2.imwrite(newFilename, crop_img)
+                return newFilename
+
+            case "resize":
+                resized_img = cv2.resize(img, (300, 300))
+                newFilename = f"static/{filename.split('.')[0]}_resized.png"
+                cv2.imwrite(newFilename, resized_img)
+                return newFilename
+
+            case "brightness_inc":
+                bright_img = cv2.convertScaleAbs(img, alpha=1.2, beta=30)
+                newFilename = f"static/{filename.split('.')[0]}_bright_inc.png"
+                cv2.imwrite(newFilename, bright_img)
+                return newFilename
+
+            case "brightness_dec":
+                dark_img = cv2.convertScaleAbs(img, alpha=0.8, beta=-30)
+                newFilename = f"static/{filename.split('.')[0]}_bright_dec.png"
+                cv2.imwrite(newFilename, dark_img)
+                return newFilename
+
+            case "contrast_inc":
+                contrast_img = cv2.convertScaleAbs(img, alpha=2.0, beta=0)
+                newFilename = f"static/{filename.split('.')[0]}_contrast_inc.png"
+                cv2.imwrite(newFilename, contrast_img)
+                return newFilename
+
+            case "contrast_dec":
+                low_contrast_img = cv2.convertScaleAbs(img, alpha=0.5, beta=0)
+                newFilename = f"static/{filename.split('.')[0]}_contrast_dec.png"
+                cv2.imwrite(newFilename, low_contrast_img)
+                return newFilename
+
 
     return None
 

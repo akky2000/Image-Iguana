@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container my-4">
+<div class="container my-4 ">
     <h1 class="fs-3 text">ImageIguana - Edit your Image online!</h1>
 
     <form action="/edit" method="post" enctype="multipart/form-data">
@@ -24,8 +24,8 @@
         </div>
 
         <!-- Dropdown for Image Processing -->
-        <div class="form-floating mb-3">
-            <select name="image_processing" class="form-select" id="imageProcessingSelect"
+        <div class="form-floating mb-4">
+            <select name="image_processing" class="form-select  " id="imageProcessingSelect"
                 aria-label="Image Processing Select">
                 <option selected>Choose image processing option</option>
                 <option value="cgray">Convert to Grayscale</option>
@@ -34,6 +34,16 @@
                 <option value="canny">Edge Image</option>
                 <option value="rotate">Rotate Clockwise</option>
                 <option value="sharpen">Sharpen Image</option>
+
+
+                    <!-- New Image Editing Features -->
+               <!-- Basic Edit Features -->
+                <option value="crop">Crop</option>
+                <option value="resize">Resize to 300x300</option>
+                <option value="brightness_inc">Increase Brightness</option>
+                <option value="brightness_dec">Decrease Brightness</option>
+                <option value="contrast_inc">Increase Contrast</option>
+                <option value="contrast_dec">Decrease Contrast</option>
             </select>
             <label for="imageProcessingSelect">Select Image Processing Option</label>
         </div>
