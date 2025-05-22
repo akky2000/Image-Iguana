@@ -104,7 +104,6 @@ def processImage(filename, format_conversion=None, image_processing=None):
                 return newFilename
             
  #add new features , add under the image_processing
- 
           
             case "crop":
                 # Crop 10% margin
