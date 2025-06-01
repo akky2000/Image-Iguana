@@ -23,7 +23,7 @@
                 <button onclick="clearCanvas()" class="btn btn-secondary btn-sm">Clear</button>
                 <button onclick="saveAnnotated()" class="btn btn-success btn-sm">Save Annotation</button>
             </div>
-            <form id="annotate-form" action="{{ url_for('edit') }}" method="post" enctype="multipart/form-data" style="display:none;">
+            <form id="annotate-form" action="{{ url_for('main.edit') }}" method="post" enctype="multipart/form-data" style="display:none;">
                 <input type="hidden" name="annotated_image" id="annotated_image">
                 <input type="hidden" name="original_filename" value="{{ original_filename }}">
                 <input type="hidden" name="edited_filename" value="{{ edited_filename }}">
@@ -102,7 +102,7 @@ function saveAnnotated() {
 
 document.getElementById('download-btn').addEventListener('click', function(e) {
     setTimeout(function() {
-        window.location.href = "{{ url_for('home') }}";
+        window.location.href = "{{ url_for('main.home') }}";
     }, 1000); // Wait 1 second before redirecting
 });
 </script>
