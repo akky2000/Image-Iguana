@@ -16,7 +16,7 @@
                             {% endfor %}
                         {% endif %}
                     {% endwith %}
-                    <form method="POST" action="{{ url_for('main.login') }}">
+                    <form method="POST" action="{{ url_for('auth.login') }}">
                         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <div class="form-group mb-3">
                             <label for="username">Username</label>
@@ -37,7 +37,7 @@
                         </div>
                     </form>
                     <div class="text-center mt-3">
-                        <p>Don't have an account? <a href="{{ url_for('main.signup') }}">Sign up here</a></p>
+                        <p>Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign up here</a></p>
                     </div>
                 </div>
             </div>
