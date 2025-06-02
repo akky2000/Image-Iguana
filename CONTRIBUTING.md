@@ -6,7 +6,7 @@ Thank you for your interest in contributing! Whether you're fixing a bug, improv
 - Fork the repository to your GitHub account.
 - Clone your fork:
   ```bash
-  git clone https://github.com/YOUR_USERNAME/Image-Iguana.git
+  git clone https://github.com/Shahid6174/Image-Iguana.git
   ```
 - Create a branch:
   ```bash
