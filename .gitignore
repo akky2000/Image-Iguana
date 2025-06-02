@@ -199,3 +199,4 @@ cython_debug/
 uploads/
 static/*.*
 static/uploads
+instance/users.db
