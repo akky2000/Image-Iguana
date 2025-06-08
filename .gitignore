@@ -197,6 +197,5 @@ cython_debug/
 ## custom gitignore
 
 uploads/
-static/*.*
 static/uploads
 instance/users.db
