@@ -25,9 +25,14 @@ def create_app(config_class=None):
     db.init_app(app)
     login_manager.init_app(app)
     csrf.init_app(app)
-    login_manager.login_view = 'main.login'  # Use blueprint endpoint
+    login_manager.login_view = 'auth.login'  # Use auth blueprint endpoint
 
+    # Register blueprints
+    from .auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint)
     from .routes import main as main_blueprint
     app.register_blueprint(main_blueprint)
+    from .image_processing import image_processing as image_processing_blueprint
+    app.register_blueprint(image_processing_blueprint)
 
     return app
